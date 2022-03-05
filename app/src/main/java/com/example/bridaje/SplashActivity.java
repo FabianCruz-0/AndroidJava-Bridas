@@ -3,21 +3,24 @@ package com.example.bridaje;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.os.Handler;
+import android.widget.ProgressBar;
 
-import com.google.firebase.auth.FirebaseAuth;
+public class SplashActivity extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity {
-
+    ProgressBar splashProgress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_splash);
+
+        setTitle("Bridaje");
 
         //Cambia el color de la barra del título
         ActionBar actionBar;
@@ -25,17 +28,18 @@ public class MainActivity extends AppCompatActivity {
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#006600"));
         actionBar.setBackgroundDrawable(colorDrawable);
 
-        Button signOut = findViewById(R.id.signOutBtn);
+        splashProgress=findViewById(R.id.splashProgress);
+        ObjectAnimator.ofInt(splashProgress,"progress",100).setDuration(5000).start();
 
-        signOut.setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
+
             @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+            public void run() {
+                Intent intent=new Intent(SplashActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
-        });
+        },5000);
 
     }
 }

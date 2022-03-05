@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "990535682756",
+    "project_id": "bridajeandroid-94782",
+    "storage_bucket": "bridajeandroid-94782.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990535682756:android:474699d47972512ed75791",
+        "android_client_info": {
+          "package_name": "com.example.bridaje"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990535682756-38hej5dncc9omntoj46l5k5h1h9cq62p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARY2g-cwt8Vd0w9uw61oZnYAWx1tHFo4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "990535682756-38hej5dncc9omntoj46l5k5h1h9cq62p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
