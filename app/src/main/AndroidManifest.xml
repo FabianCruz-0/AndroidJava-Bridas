@@ -9,9 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bridaje">
-        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".ResetPasswordActivity"></activity>
+        <activity
+            android:name=".Cerrar"
+            android:exported="false" />
+        <activity
+            android:name=".Ajustes"
+            android:exported="false" />
+        <activity
+            android:name=".Calcula"
+            android:exported="false" />
+        <activity
+            android:name=".Inicio"
+            android:exported="false" />
+        <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,38 +40,52 @@ public class LoginActivity extends AppCompatActivity {
 
         Button signIn = findViewById(R.id.signInBtn);
         Button signUp = findViewById(R.id.signUpBtn);
+        TextView resetPassText = findViewById(R.id.resetPassTextView);
 
         signIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                EditText email =findViewById(R.id.emailEditText);
+                EditText email = findViewById(R.id.emailEditText);
                 String stringEmail = email.getText().toString().trim();
-                EditText pass =findViewById(R.id.passEditText);
+                EditText pass = findViewById(R.id.passEditText);
                 String stringPass = pass.getText().toString().trim();
 
-                auth.signInWithEmailAndPassword(stringEmail, stringPass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    //entro
-                                    Toast.makeText(LoginActivity.this, "Usuario creado.",Toast.LENGTH_SHORT).show();
-                                    Intent intent=new Intent(LoginActivity.this,MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    //algo fallo
-                                    Toast.makeText(LoginActivity.this, "Se produjo un error.",Toast.LENGTH_SHORT).show();
-                                    System.out.println(task.getException());
-                                }
-                            }});
+                if (stringEmail.equals("") || stringPass.equals("")) {
+                    Toast.makeText(getApplicationContext(), "FAVOR DE INTRODUCIR CAMPOS VÁLIDOS.", Toast.LENGTH_SHORT).show();
+                } else {
+                    auth.signInWithEmailAndPassword(stringEmail, stringPass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                //entro
+                                Intent intent = new Intent(LoginActivity.this, Inicio.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                //algo fallo
+                                Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos.", Toast.LENGTH_SHORT).show();
+                                System.out.println(task.getException());
+                            }
+                        }
+                    });
+                }
             }
         });
 
         signUp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this,SignupActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(intent);
             }
         });
+
+        resetPassText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -78,9 +93,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null)
         FirebaseUser currentUser = auth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             //hay sesión
-            Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, Inicio.class);
             startActivity(intent);
             finish();
         }

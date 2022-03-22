@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context=".SplashActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -23,24 +25,26 @@
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/pemex" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="0.5">
+
             <ProgressBar
                 android:id="@+id/splashProgress"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_weight="0.5">
-        </LinearLayout>
+            android:layout_weight="0.5"></LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

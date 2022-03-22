@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 public class SplashActivity extends AppCompatActivity {
 
     ProgressBar splashProgress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -28,18 +29,18 @@ public class SplashActivity extends AppCompatActivity {
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#006600"));
         actionBar.setBackgroundDrawable(colorDrawable);
 
-        splashProgress=findViewById(R.id.splashProgress);
-        ObjectAnimator.ofInt(splashProgress,"progress",100).setDuration(5000).start();
+        splashProgress = findViewById(R.id.splashProgress);
+        ObjectAnimator.ofInt(splashProgress, "progress", 100).setDuration(5000).start();
 
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this,LoginActivity.class);
+                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
-        },5000);
+        }, 5000);
 
     }
 }

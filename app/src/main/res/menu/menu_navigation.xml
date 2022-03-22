@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/inicio"
+        android:title="Inicio"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/calcula"
+        android:title="Calcula"
+        android:icon="@drawable/ic_calculate"/>
+    <item
+        android:id="@+id/ajustes"
+        android:title="Ajustes"
+        android:icon="@drawable/ic_settings"/>
+    <item
+        android:id="@+id/exit"
+        android:title="Cerrar"
+        android:icon="@drawable/ic_exit"/>
+
+</menu>
